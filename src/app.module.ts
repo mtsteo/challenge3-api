@@ -9,8 +9,12 @@ import { Category } from './categories/entities/category.entity';
 @Module({
   imports: [
     TypeOrmModule.forRoot({
-      type: 'sqlite',
-      database: 'db.sqlite',
+      type: 'postgres',
+      host : 'localhost',
+      database: 'challenge3',
+      port : 5432,
+      username : 'compass',
+      password : 'compass',
       synchronize: true,
       entities: [Product, Category],
     }),
