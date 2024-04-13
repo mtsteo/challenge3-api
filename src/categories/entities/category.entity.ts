@@ -19,13 +19,17 @@ export class Category {
   name: string;
   @Column()
   image_link: string;
-  @OneToMany(()=>Product,(product)=> product.category_id )
+  @OneToMany(() => Product, (product) => product.category_id)
   @JoinTable()
-  products : Product[]
-  //     @CreateDateColumn({ type: 'timestamp', default: () => 'CURRENT_TIMESTAMP' })
-  //     created_date : Date;
-  //     @UpdateDateColumn({ type: 'timestamp', default: () => 'CURRENT_TIMESTAMP', onUpdate: 'CURRENT_TIMESTAMP' })
-  //     updated_date : Date;
+  products: Product[];
+  @CreateDateColumn({ type: 'timestamp', default: () => 'CURRENT_TIMESTAMP' })
+  created_date: Date;
+  @UpdateDateColumn({
+    type: 'timestamp',
+    default: () => 'CURRENT_TIMESTAMP',
+    onUpdate: 'CURRENT_TIMESTAMP',
+  })
+  updated_date: Date;
   @AfterInsert()
   logInsert() {
     console.log('Category inserted!');

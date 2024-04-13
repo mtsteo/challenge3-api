@@ -1,4 +1,11 @@
-import { AfterInsert, Column, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
+import {
+  AfterInsert,
+  Column,
+  CreateDateColumn,
+  Entity,
+  ManyToOne,
+  PrimaryGeneratedColumn,
+} from 'typeorm';
 import { Category } from '../../categories/entities/category.entity';
 
 @Entity()
@@ -9,8 +16,8 @@ export class Product {
   name: string;
   @Column()
   sku: string;
-  @ManyToOne(()=> Category, (category)=> category.products)
-  category_id : Category
+  @ManyToOne(() => Category, (category) => category.products)
+  category_id: Category;
   // @Column('string', {array:true})
   // tags : string[];
   @Column()
@@ -20,7 +27,7 @@ export class Product {
   @Column()
   large_description2: string;
   @Column()
-  additional_information :string
+  additional_information: string;
   @Column()
   price: number;
   @Column()
@@ -33,11 +40,17 @@ export class Product {
   image_link: string;
   @Column()
   other_images_link: string;
-  //   created_date : Date;
-  //   updated_date : Date;
+  @CreateDateColumn({ type: 'timestamp', default: () => 'CURRENT_TIMESTAMP' })
+  created_date: Date;
+  @CreateDateColumn({
+    type: 'timestamp',
+    default: () => 'CURRENT_TIMESTAMP',
+    onUpdate: 'CURRENT_TIMESTAMP',
+  })
+  updated_date: Date;
 
   @AfterInsert()
   logInsert() {
-    console.log("product inserted!")
+    console.log('product inserted!');
   }
 }
