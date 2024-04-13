@@ -12,21 +12,16 @@ export class ProductsService {
   ) {}
   create(createProductDto: CreateProductDto) {
     const product = this.repository.create(createProductDto);
-  
 
     return this.repository.save(product);
   }
 
   findAll() {
-    return this.repository.find({relations:{category_id : true}});
+    return this.repository.find({ relations: { category_id: true } });
   }
 
-  findByCategory(name: string){
-    
-  }
-
-  findOne(id: number) {
-    return `This action returns a #${id} product`;
+  findOne(id: string) {
+    return this.repository.find({ where: { id: id } });
   }
 
   update(id: number, updateProductDto: UpdateProductDto) {

@@ -7,7 +7,7 @@ Content-Type: application/json
     "name": "Sofa",
     "sku": "SOFA1B002",
     "description" : "Dois Lugares",
-    "category_id" : 1,
+    "category_id" : ,
     "tags" : ["a"],
     "large_description" : "Sofa lindo dois lugares top de linha",
     "large_description2" : "Large Description 2",
@@ -23,3 +23,7 @@ Content-Type: application/json
 ###df
 //Get all products
 GET http://localhost:3000/products HTTP/1.1
+
+### Get one product
+
+GET http://localhost:3000/products/390e6773-3ac0-4070-a58a-98fe19e56294 HTTP/1.1

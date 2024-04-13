@@ -13,6 +13,7 @@ import { CreateProductDto } from './dto/create-product.dto';
 import { UpdateProductDto } from './dto/update-product.dto';
 import { Serialize } from '../interceptors/serialize.interceptor';
 import { ProductDto } from './dto/product.dto';
+import { DetailedProductDto } from './dto/product-detailed.dto';
 
 @Controller('products')
 export class ProductsController {
@@ -30,9 +31,10 @@ export class ProductsController {
     return this.productsService.findAll();
   }
 
+  @Serialize(DetailedProductDto)
   @Get(':id')
   findOne(@Param('id') id: string) {
-    return this.productsService.findOne(+id);
+    return this.productsService.findOne(id);
   }
 
   @Patch(':id')
