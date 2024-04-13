@@ -1,4 +1,5 @@
-import { AfterInsert, Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { AfterInsert, Column, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
+import { Category } from '../../categories/entities/category.entity';
 
 @Entity()
 export class Product {
@@ -8,7 +9,8 @@ export class Product {
   name: string;
   @Column()
   sku: string;
-  //   category_id : number
+  @ManyToOne(()=> Category, (category)=> category.products)
+  category_id : Category
   @Column()
   description: string;
   @Column()
