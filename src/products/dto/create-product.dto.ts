@@ -6,7 +6,7 @@ export class CreateProductDto {
   name: string;
   @IsString()
   sku: string;
-  @IsString()
+  @IsNumber()
   category_id: Category;
   @IsArray()
   tags : string[]

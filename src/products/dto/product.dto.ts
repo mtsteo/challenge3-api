@@ -7,7 +7,7 @@ export class ProductDto {
   sku: string;
   @Transform(({obj})=>obj.category_id?.name)
   @Expose()
-  category: string;
+  category: number;
   @Expose()
   tags : []
   @Expose()

@@ -7,7 +7,7 @@ Content-Type: application/json
     "name": "Sofa",
     "sku": "SOFA1B002",
     "description" : "Dois Lugares",
-    "category_id" : "1",
+    "category_id" : 1,
     "tags" : ["a"],
     "large_description" : "Sofa lindo dois lugares top de linha",
     "large_description2" : "Large Description 2",
