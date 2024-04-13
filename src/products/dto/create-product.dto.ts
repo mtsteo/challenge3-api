@@ -4,12 +4,15 @@ import {
   IsString,
   IsUrl,
 } from 'class-validator';
+import { Category } from '../../categories/entities/category.entity';
 
 export class CreateProductDto {
   @IsString()
   name: string;
   @IsString()
   sku: string;
+  @IsString()
+  category_id: Category;
   @IsString()
   description: string;
   @IsString()

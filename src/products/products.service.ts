@@ -12,12 +12,17 @@ export class ProductsService {
   ) {}
   create(createProductDto: CreateProductDto) {
     const product = this.repository.create(createProductDto);
+  
 
     return this.repository.save(product);
   }
 
   findAll() {
     return this.repository.find();
+  }
+
+  findByCategory(name: string){
+    
   }
 
   findOne(id: number) {
