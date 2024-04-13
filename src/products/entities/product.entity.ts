@@ -18,8 +18,8 @@ export class Product {
   sku: string;
   @ManyToOne(() => Category, (category) => category.products)
   category_id: Category;
-  // @Column('string', {array:true})
-  // tags : string[];
+  @Column('text', { array: true, nullable : true })
+  tags: string[];
   @Column()
   description: string;
   @Column()

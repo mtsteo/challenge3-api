@@ -4,11 +4,14 @@ POST http://localhost:3000/products HTTP/1.1
 Content-Type: application/json
 
 {
-    "name": "prato",
+    "name": "Sofa",
     "sku": "SOFA1B002",
     "description" : "Dois Lugares",
-    "category_id" : "6a616c84-dc7f-47e0-b835-476abbb52101",
+    "category_id" : "1",
+    "tags" : ["a"],
     "large_description" : "Sofa lindo dois lugares top de linha",
+    "large_description2" : "Large Description 2",
+    "additional_information" : "Additional information",
     "price": 10000,
     "discount_price": 8000,
     "discount_percent" : 20,

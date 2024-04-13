@@ -9,6 +9,8 @@ export class ProductDto {
   @Expose()
   category: string;
   @Expose()
+  tags : []
+  @Expose()
   description: string;
   @Expose()
   large_description: string;

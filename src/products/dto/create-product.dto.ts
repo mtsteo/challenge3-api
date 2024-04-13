@@ -1,4 +1,4 @@
-import { IsBoolean, IsNumber, IsString, IsUrl } from 'class-validator';
+import { IsArray, IsBoolean, IsNumber, IsString, IsUrl } from 'class-validator';
 import { Category } from '../../categories/entities/category.entity';
 
 export class CreateProductDto {
@@ -8,6 +8,8 @@ export class CreateProductDto {
   sku: string;
   @IsString()
   category_id: Category;
+  @IsArray()
+  tags : string[]
   @IsString()
   description: string;
   @IsString()
