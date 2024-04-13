@@ -18,7 +18,7 @@ export class ProductsService {
   }
 
   findAll() {
-    return this.repository.find();
+    return this.repository.find({relations:{category_id : true}});
   }
 
   findByCategory(name: string){

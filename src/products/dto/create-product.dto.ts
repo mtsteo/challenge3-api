@@ -1,9 +1,4 @@
-import {
-  IsBoolean,
-  IsNumber,
-  IsString,
-  IsUrl,
-} from 'class-validator';
+import { IsBoolean, IsNumber, IsString, IsUrl } from 'class-validator';
 import { Category } from '../../categories/entities/category.entity';
 
 export class CreateProductDto {
@@ -17,6 +12,10 @@ export class CreateProductDto {
   description: string;
   @IsString()
   large_description: string;
+  @IsString()
+  large_description2: string;
+  @IsString()
+  additional_information: string;
   @IsNumber()
   price: number;
   @IsNumber()

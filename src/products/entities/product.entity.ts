@@ -3,7 +3,7 @@ import { Category } from '../../categories/entities/category.entity';
 
 @Entity()
 export class Product {
-  @PrimaryGeneratedColumn()
+  @PrimaryGeneratedColumn('uuid')
   id: number;
   @Column()
   name: string;
@@ -11,10 +11,16 @@ export class Product {
   sku: string;
   @ManyToOne(()=> Category, (category)=> category.products)
   category_id : Category
+  // @Column('string', {array:true})
+  // tags : string[];
   @Column()
   description: string;
   @Column()
   large_description: string;
+  @Column()
+  large_description2: string;
+  @Column()
+  additional_information :string
   @Column()
   price: number;
   @Column()
