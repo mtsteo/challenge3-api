@@ -7,6 +7,7 @@ import {
   AfterInsert,
   PrimaryGeneratedColumn,
   OneToMany,
+  JoinTable,
 } from 'typeorm';
 import { Product } from '../../products/entities/product.entity';
 
@@ -19,6 +20,7 @@ export class Category {
   @Column()
   image_link: string;
   @OneToMany(()=>Product,(product)=> product.category_id )
+  @JoinTable()
   products : Product[]
   //     @CreateDateColumn({ type: 'timestamp', default: () => 'CURRENT_TIMESTAMP' })
   //     created_date : Date;

@@ -19,6 +19,15 @@ export class CategoriesService {
     return await this.repository.find();
   }
 
+  async findAllprod(name: string) {
+    const products = await this.repository.find({
+      where: { name: name },
+      select: { products: true },
+      relations: { products: true },
+    });
+    return products[0].products;
+  }
+
   findOne(id: number) {
     return `This action returns a #${id} category`;
   }
