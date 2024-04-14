@@ -1,15 +1,17 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import { CreateCategoryDto } from './dto/create-category.dto';
-import { UpdateCategoryDto } from './dto/update-category.dto';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Category } from './entities/category.entity';
 import { Repository } from 'typeorm';
+import { ProductsService } from '../products/products.service';
 
 @Injectable()
 export class CategoriesService {
   constructor(
     @InjectRepository(Category) private repository: Repository<Category>,
+    private productService: ProductsService,
   ) {}
+
   async create(createCategoryDto: CreateCategoryDto) {
     const category = this.repository.create(createCategoryDto);
     return await this.repository.save(category);
@@ -20,23 +22,9 @@ export class CategoriesService {
   }
 
   async findAllprod(name: string) {
-    const products = await this.repository.find({
-      where: { name: name },
-      select: { products: true },
-      relations: { products: true },
-    });
-    return products[0].products;
-  }
+    const result = await this.productService.findByCategory(name);
 
-  findOne(id: number) {
-    return `This action returns a #${id} category`;
-  }
-
-  update(id: number, updateCategoryDto: UpdateCategoryDto) {
-    return `This action updates a #${id} category`;
-  }
-
-  remove(id: number) {
-    return `This action removes a #${id} category`;
+    if (result.length <= 0) throw new NotFoundException('Products Not Found!');
+    return result;
   }
 }
