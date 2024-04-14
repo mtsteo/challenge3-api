@@ -26,4 +26,4 @@ GET http://localhost:3000/products HTTP/1.1
 
 ### Get one product
 
-GET http://localhost:3000/products/8ebf2620-182c-4222-87df-a920bf484d8b HTTP/1.1
+GET http://localhost:3000/products/3d89e527-c298-430f-8c14-a17db8811883 HTTP/1.1
