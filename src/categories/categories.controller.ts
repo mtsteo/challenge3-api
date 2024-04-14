@@ -9,6 +9,7 @@ import { CategoryDto } from './dto/ category.dto';
 export class CategoriesController {
   constructor(private readonly categoriesService: CategoriesService) {}
 
+  @Serialize(CategoryDto)
   @Post()
   create(@Body() createCategoryDto: CreateCategoryDto) {
     return this.categoriesService.create(createCategoryDto);

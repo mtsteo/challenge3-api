@@ -16,6 +16,10 @@ import { Category } from './categories/entities/category.entity';
       inject: [ConfigService],
       useFactory: (config: ConfigService) => {
         return {
+          // type: 'postgres',
+          // url: config.get<string>('URL_DATABASE'),
+          // synchronize: true,
+          // entities: [Product, Category],
           type: 'postgres',
           host: config.get<string>('HOST'),
           database: config.get<string>('DATABASE_NAME'),

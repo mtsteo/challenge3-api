@@ -3,7 +3,8 @@ Content-Type: application/json
 
 {
     "name" : "Bedroom",
-    "image_link": "https://postimg.cc/MTJY8N15"
+    "image_link": "https://postimg.cc/MTJY8N15",
+    "teste" : "teste"
 }   
 
 ###
