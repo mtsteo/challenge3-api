@@ -5,15 +5,15 @@ export class ProductDto {
   id: string;
   @Expose()
   name: string;
-  @Expose()
-  sku: string;
-  @Transform(({ obj }) => obj.category_id?.name)
-  @Expose()
-  category: number;
+  // @Expose()
+  // sku: string;
+  // @Transform(({ obj }) => obj.category_id?.name)
+  // @Expose()
+  // category: number;
   @Expose()
   description: string;
-  @Expose()
-  large_description: string;
+  // @Expose()
+  // large_description: string;
   @Expose()
   price: number;
   @Expose()
@@ -24,6 +24,6 @@ export class ProductDto {
   is_new: boolean;
   @Expose()
   image_link: string;
-  @Expose()
-  other_images_link: string;
+  // @Expose()
+  // other_images_link: string;
 }
