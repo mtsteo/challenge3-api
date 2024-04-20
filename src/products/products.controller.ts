@@ -7,6 +7,8 @@ import {
   Param,
   Delete,
   Query,
+  DefaultValuePipe,
+  ParseIntPipe,
 } from '@nestjs/common';
 import { ProductsService } from './products.service';
 import { CreateProductDto } from './dto/create-product.dto';
@@ -27,13 +29,11 @@ export class ProductsController {
 
   @Serialize(ProductDto)
   @Get()
-  findByAmount(@Query('amount') amount: number) {
-    return this.productsService.findByAmount(amount);
-  }
-  @Serialize(ProductDto)
-  @Get()
-  findAll() {
-    return this.productsService.findAll();
+  findAll(
+    @Query('page', new DefaultValuePipe(1), ParseIntPipe) page: number ,
+    @Query('limit', new DefaultValuePipe(16), ParseIntPipe) limit: number ,
+  ) {
+    return this.productsService.findAll(page, limit);
   }
 
   @Serialize(DetailedProductDto)
