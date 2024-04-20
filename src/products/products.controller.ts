@@ -28,7 +28,6 @@ export class ProductsController {
   @Serialize(ProductDto)
   @Get()
   findByAmount(@Query('amount') amount: number) {
-    console.log(amount)
     return this.productsService.findByAmount(amount);
   }
   @Serialize(ProductDto)

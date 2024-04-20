@@ -24,6 +24,8 @@ Content-Type: application/json
 //Get all products
 GET http://localhost:3001/products HTTP/1.1
 
+
+
 ### Get a expecific amount 
 GET http://localhost:3001/products/?amount=2 HTTP/1.1
 

@@ -24,11 +24,11 @@ export class ProductsService {
       .createQueryBuilder()
       .select('*')
       .limit(amount)
-      .execute()
-      
+      .execute();
   }
 
   async findByCategory(categoryName: string) {
+    console.log(categoryName);
     const result = await this.repository.find({
       where: { category_id: { name: categoryName } },
     });
