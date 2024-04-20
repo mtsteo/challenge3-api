@@ -2,7 +2,7 @@ POST http://localhost:3001/categories HTTP/1.1
 Content-Type: application/json
 
 {   
-    "name" : "living",
+    "name" : "bedroom",
     "image_link": "https://i.postimg.cc/MTJY8N15/quarto.png"
 }   
 
