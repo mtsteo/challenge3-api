@@ -15,8 +15,17 @@ export class ProductsService {
     return this.repository.save(product);
   }
 
-  findAll() {
-    return this.repository.find({ relations: { category_id: true } });
+  async findAll() {
+    return await this.repository.find({ relations: { category_id: true } });
+  }
+
+  async findByAmount(amount: number) {
+    return this.repository
+      .createQueryBuilder()
+      .select('*')
+      .limit(amount)
+      .execute()
+      
   }
 
   async findByCategory(categoryName: string) {

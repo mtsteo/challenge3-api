@@ -27,6 +27,12 @@ export class ProductsController {
 
   @Serialize(ProductDto)
   @Get()
+  findByAmount(@Query('amount') amount: number) {
+    console.log(amount)
+    return this.productsService.findByAmount(amount);
+  }
+  @Serialize(ProductDto)
+  @Get()
   findAll() {
     return this.productsService.findAll();
   }
@@ -36,5 +42,4 @@ export class ProductsController {
   findOne(@Param('id') id: string) {
     return this.productsService.findOne(id);
   }
-
 }
