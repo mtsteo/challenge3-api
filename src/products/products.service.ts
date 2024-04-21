@@ -15,11 +15,11 @@ export class ProductsService {
     return this.repository.save(product);
   }
 
-  async findAll(limit: number, page: number) {
+  async findAll( page: number,limit: number) {
     const skip = (page - 1) * limit
     return await this.repository.find({
       skip,
-      take: page,
+      take: limit,
       relations: { category_id: true },
     });
   }
