@@ -28,6 +28,6 @@ export class CreateProductDto {
   is_new: boolean;
   @IsUrl()
   image_link: string;
-  @IsUrl()
-  other_images_link: string;
+  @IsArray()
+  other_images_link: string[];
 }

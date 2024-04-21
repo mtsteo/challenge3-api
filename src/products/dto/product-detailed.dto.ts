@@ -31,5 +31,5 @@ export class DetailedProductDto {
   @Expose()
   image_link: string;
   @Expose()
-  other_images_link: string;
+  other_images_link: string[];
 }

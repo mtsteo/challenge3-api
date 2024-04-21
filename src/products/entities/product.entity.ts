@@ -38,8 +38,8 @@ export class Product {
   is_new: boolean;
   @Column()
   image_link: string;
-  @Column()
-  other_images_link: string;
+  @Column('text', { array: true, nullable : true })
+  other_images_link: string[];
   @CreateDateColumn({ type: 'timestamp', default: () => 'CURRENT_TIMESTAMP' })
   created_date: Date;
   @CreateDateColumn({
