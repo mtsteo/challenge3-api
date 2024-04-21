@@ -15,21 +15,14 @@ export class ProductsService {
     return this.repository.save(product);
   }
 
-  async findAll(page: number, limit: number) {
+  async findAll(page: number, limit: number, order: string) {
     const skip = (page - 1) * limit;
     return await this.repository.find({
       skip,
       take: limit,
       relations: { category_id: true },
+      order: { price: order as any },
     });
-  }
-
-  async findByAmount(amount: number) {
-    return this.repository
-      .createQueryBuilder()
-      .select('*')
-      .limit(amount)
-      .execute();
   }
 
   async findByCategory(name: string, page: number, limit: number) {

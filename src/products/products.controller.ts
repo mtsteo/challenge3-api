@@ -32,8 +32,9 @@ export class ProductsController {
   findAll(
     @Query('page', new DefaultValuePipe(1), ParseIntPipe) page: number,
     @Query('limit', new DefaultValuePipe(16), ParseIntPipe) limit: number,
+    @Query('order', new DefaultValuePipe('ASC')) order: string,
   ) {
-    return this.productsService.findAll(page, limit);
+    return this.productsService.findAll(page, limit, order);
   }
 
   // @Serialize(DetailedProductDto)
@@ -44,11 +45,11 @@ export class ProductsController {
   @Serialize(DetailedProductDto)
   @Get('category')
   findByCategory(
-    @Query('name') name : string,
+    @Query('name') name: string,
     @Query('page', new DefaultValuePipe(1), ParseIntPipe) page: number,
     @Query('limit', new DefaultValuePipe(16), ParseIntPipe) limit: number,
   ) {
-    console.log(name, page, limit)
+    console.log(name, page, limit);
     return this.productsService.findByCategory(name, page, limit);
   }
 }
