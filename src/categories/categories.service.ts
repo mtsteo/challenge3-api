@@ -21,10 +21,4 @@ export class CategoriesService {
     return await this.repository.find();
   }
 
-  async findAllprod(name: string) {
-    const result = await this.productService.findByCategory(name);
-
-    if (result.length <= 0) throw new NotFoundException('Products Not Found!');
-    return result;
-  }
 }

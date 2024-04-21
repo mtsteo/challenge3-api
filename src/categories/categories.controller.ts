@@ -20,10 +20,4 @@ export class CategoriesController {
   findAll() {
     return this.categoriesService.findAll();
   }
-
-  @Get(":name")
-  findAllProdByCategory(@Param('name') name : string){
-    return this.categoriesService.findAllprod(name)
-  }
-
 }

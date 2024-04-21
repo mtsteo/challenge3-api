@@ -15,8 +15,8 @@ export class ProductsService {
     return this.repository.save(product);
   }
 
-  async findAll( page: number,limit: number) {
-    const skip = (page - 1) * limit
+  async findAll(page: number, limit: number) {
+    const skip = (page - 1) * limit;
     return await this.repository.find({
       skip,
       take: limit,
@@ -32,10 +32,12 @@ export class ProductsService {
       .execute();
   }
 
-  async findByCategory(categoryName: string) {
-    console.log(categoryName);
+  async findByCategory(name: string, page: number, limit: number) {
+    const skip = (page - 1) * limit;
     const result = await this.repository.find({
-      where: { category_id: { name: categoryName } },
+      where: { category_id: { name: name } },
+      skip,
+      take: limit,
     });
     if (result.length <= 0) throw new NotFoundException('Products Not Found!');
     return result;

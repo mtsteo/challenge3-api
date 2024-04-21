@@ -30,15 +30,25 @@ export class ProductsController {
   @Serialize(ProductDto)
   @Get()
   findAll(
-    @Query('page', new DefaultValuePipe(1), ParseIntPipe) page: number ,
-    @Query('limit', new DefaultValuePipe(16), ParseIntPipe) limit: number ,
+    @Query('page', new DefaultValuePipe(1), ParseIntPipe) page: number,
+    @Query('limit', new DefaultValuePipe(16), ParseIntPipe) limit: number,
   ) {
     return this.productsService.findAll(page, limit);
   }
 
+  // @Serialize(DetailedProductDto)
+  // @Get('/:id')
+  // findOne(@Param('id') id: string) {
+  //   return this.productsService.findOne(id);
+  // }
   @Serialize(DetailedProductDto)
-  @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.productsService.findOne(id);
+  @Get('category')
+  findByCategory(
+    @Query('name') name : string,
+    @Query('page', new DefaultValuePipe(1), ParseIntPipe) page: number,
+    @Query('limit', new DefaultValuePipe(16), ParseIntPipe) limit: number,
+  ) {
+    console.log(name, page, limit)
+    return this.productsService.findByCategory(name, page, limit);
   }
 }

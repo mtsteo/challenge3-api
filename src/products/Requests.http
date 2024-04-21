@@ -4,10 +4,10 @@ POST http://localhost:3001/products HTTP/1.1
 Content-Type: application/json
 
 {
-    "name": "teste18",
+    "name": "teste5645",
     "sku": "SOFA1B002",
     "description" : "outra pagina",
-    "category_id" : 11 ,
+    "category_id" : 10 ,
     "tags" : ["a", "b"],
     "large_description" : "Sofa lindo dois lugares top de linha",
     "large_description2" : "Large Description 2",
@@ -27,6 +27,9 @@ GET http://localhost:3001/products?page=1&limit=2 HTTP/1.1
 
 ### Get a expecific amount 
 GET http://localhost:3001/products/?amount=2 HTTP/1.1
+
+### Get by category
+GET http://localhost:3001/products/category?name=living&page=1&limit=2 HTTP/1.1
 
 
 ### Get one product
