@@ -37,13 +37,13 @@ export class ProductsController {
     return this.productsService.findAll(page, limit, order);
   }
 
-  // @Serialize(DetailedProductDto)
-  // @Get('/:id')
-  // findOne(@Param('id') id: string) {
-  //   return this.productsService.findOne(id);
-  // }
   @Serialize(DetailedProductDto)
-  @Get('category')
+  @Get('/details/:id')
+  findOne(@Param('id') id: string) {
+    return this.productsService.findOne(id);
+  }
+  @Serialize(DetailedProductDto)
+  @Get('/category')
   findByCategory(
     @Query('name') name: string,
     @Query('page', new DefaultValuePipe(1), ParseIntPipe) page: number,
