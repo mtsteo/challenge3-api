@@ -33,8 +33,9 @@ export class ProductsController {
     @Query('page', new DefaultValuePipe(1), ParseIntPipe) page: number,
     @Query('limit', new DefaultValuePipe(16), ParseIntPipe) limit: number,
     @Query('order', new DefaultValuePipe('ASC')) order: string,
+    @Query('category') category: string,
   ) {
-    return this.productsService.findAll(page, limit, order);
+    return this.productsService.findAll(page, limit, order, category);
   }
 
   @Serialize(DetailedProductDto)
