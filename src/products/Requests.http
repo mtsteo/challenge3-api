@@ -7,16 +7,16 @@ Content-Type: application/json
     "name": "cheap",
     "sku": "SOFA1B002",
     "description" : "outra pagina",
-    "category_id" : 10 ,
+    "category_id" : 1 ,
     "tags" : ["a", "b"],
-    "large_description" : "Sofa lindo dois lugares top de linha",
+    "large_description" : "Sofa lindo dois lugares top de linhasdsdgdggsg",
     "large_description2" : "Large Description 2",
     "additional_information" : "Additional information",
     "price": 10,
     "discount_price": 8000,
     "discount_percent" : 20,
     "is_new" : true,
-    "image_link" : "https://postimg.cc/v4rfB85z",
+    "image_link" : "https://i.postimg.cc/sDmH4j5r/cadeira.png",
     "other_images_link" : ["https://postimg.cc/v4rfB85z"]
 }
 
