@@ -31,6 +31,17 @@ export class ProductsService {
     return await query.getMany();
   }
 
+  async findByCategory(name: string, page: number, limit: number) {
+    const skip = (page - 1) * limit;
+    const result = await this.repository.find({
+      where: { category_id: { name: name } },
+      skip,
+      take: limit,
+    });
+    if (result.length <= 0) throw new NotFoundException('Products Not Found!');
+    return result;
+  }
+
   async findOne(id: string) {
     const result = await this.repository.find({
       where: { id: id },
