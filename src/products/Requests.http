@@ -22,18 +22,15 @@ Content-Type: application/json
 
 ###
 //Get all products
-GET http://localhost:3001/products?page=1&limit=16&order=ASC&HTTP/1.1
+GET http://localhost:3001/products?page=1&limit=2&order=ASC&HTTP/1.1
 
-
-### Get a expecific amount 
-GET http://localhost:3001/products/?amount=2 HTTP/1.1
 
 ### Get by category
-GET http://localhost:3001/products/category?name=living&page=1&limit=2 HTTP/1.1
+GET http://localhost:3001/products/category?name=living&page=1&limit=3 HTTP/1.1
 
 
 ### Get one product
 
-GET http://localhost:3001/products/details/2a73fccc-8a01-4a2b-b62d-e580bca504bf HTTP/1.1
+GET http://localhost:3001/products/details/00576a35-bb07-45e0-8443-c08572edad44 HTTP/1.1
 
 
