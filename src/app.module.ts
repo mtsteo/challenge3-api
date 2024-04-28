@@ -16,18 +16,22 @@ import { Category } from './categories/entities/category.entity';
       inject: [ConfigService],
       useFactory: (config: ConfigService) => {
         return {
+          //Postgres Local
           // type: 'postgres',
-          // url: config.get<string>('URL_DATABASE'),
-          // synchronize: true,
-          // entities: [Product, Category],
-          type: 'postgres',
-          host: config.get<string>('HOST'),
-          database: config.get<string>('DATABASE_NAME'),
-          port: config.get<number>('PORT'),
-          username: config.get<string>('DB_USERNAME'),
-          password: config.get<string>('DB_PASSWORD'),
-          synchronize: config.get<boolean>('DB_SYNCHRONIZE'),
-          entities : [Product, Category]
+          // host: config.get<string>('HOST'),
+          // database: config.get<string>('DATABASE_NAME'),
+          // port: config.get<number>('PORT'),
+          // username: config.get<string>('DB_USERNAME'),
+          // password: config.get<string>('DB_PASSWORD'),
+          // synchronize: config.get<boolean>('DB_SYNCHRONIZE'),
+          // entities : [Product, Category]
+            name: "default",
+            type: "postgres",
+            url: "postgres://mzkstpjn:YNpC84n03BBIPkm0uWUq79VO3s583tVP@fanny.db.elephantsql.com/mzkstpjn", 
+            synchronize:false,
+            logging: true,
+            entities: [Product, Category]
+          
         };
       },
     }),
